@@ -113,6 +113,9 @@ def update_y(train_y, test_y):
                     for each datapoint in the test set
     """
     #YOUR CODE HERE
+    train_y_mod3 = np.mod(train_y,3)
+    test_y_mod3 = np.mod(test_y,3)
+    return train_y_mod3, test_y_mod3
     raise NotImplementedError
 
 def compute_test_error_mod3(X, Y, theta, temp_parameter):

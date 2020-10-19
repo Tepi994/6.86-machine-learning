@@ -121,6 +121,9 @@ print('softmax test_error=', run_softmax_on_MNIST(temp_parameter=1))
 
 # TODO: Find the error rate for temp_parameter = [.5, 1.0, 2.0]
 #      Remember to return the tempParameter to 1, and re-run run_softmax_on_MNIST
+#print('softmax test_error with temperature parameter on 0.5=', run_softmax_on_MNIST(temp_parameter=0.5))
+#print('softmax test_error with temperature parameter on 1=', run_softmax_on_MNIST(temp_parameter=1))
+#print('softmax test_error with temperature parameter on 2=', run_softmax_on_MNIST(temp_parameter=2))
 
 #######################################################################
 # 6. Changing Labels
@@ -135,6 +138,8 @@ def run_softmax_on_MNIST_mod3(temp_parameter=1):
     See run_softmax_on_MNIST for more info.
     """
     # YOUR CODE HERE
+    
+    
     raise NotImplementedError
 
 
