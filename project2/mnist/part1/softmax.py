@@ -58,6 +58,11 @@ def compute_cost_function(X, Y, theta, lambda_factor, temp_parameter):
         c - the cost value (scalar)
     """
     #YOUR CODE HERE
+    h = compute_probabilities(X, theta, temp_parameter).transpose()
+    n = X.shape[0]
+    cross_entropy = np.sum(np.log(h[np.arange(len(h)), Y]))
+    loss = -1/n*cross_entropy + (lambda_factor/2)*(theta**2).sum()
+    return loss
     raise NotImplementedError
 
 def run_gradient_descent_iteration(X, Y, theta, alpha, lambda_factor, temp_parameter):
@@ -78,6 +83,16 @@ def run_gradient_descent_iteration(X, Y, theta, alpha, lambda_factor, temp_param
         theta - (k, d) NumPy array that is the final value of parameters theta
     """
     #YOUR CODE HERE
+    h = compute_probabilities(X, theta, temp_parameter).transpose()
+    z = np.zeros(h.shape)
+    z[np.arange(len(h)), Y] = 1
+    diff = z-h
+    n = X.shape[0]
+    grad = (-1/(n*temp_parameter))*(diff.transpose().dot(X)) + lambda_factor*theta
+    theta = theta - alpha*grad
+    return theta
+    
+    
     raise NotImplementedError
 
 def update_y(train_y, test_y):
